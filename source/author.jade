@@ -1,0 +1,53 @@
+|{{!< default }}
+// The tag above means - insert everything in this file into the {body} of the default.hbs template
+
+// Everything inside the #author tags pulls data from the author
+|{{#author }}
+
+// The big featured header
+header.main-header.author-head(class="{{#unless cover }} no-cover {{/unless }}", style="{{#if cover }} background-image: url({{ cover }}) {{/if }}")
+  nav.main-nav.overlay.clearfix
+
+    |{{#if @blog.logo }}
+    a.blog-logo(href='{{ @blog.url }}')
+      img(src='{{ @blog.logo }}', alt='{{ @blog.title }}')
+    |{{/if }}
+
+    |{{#if @blog.navigation }}
+    a.menu-button.icon-menu(href='#')
+      span.word Menu
+    |{{/if }}
+
+section.author-profile.inner
+  |{{#if image }}
+  figure.author-image
+    .img(style='background-image: url({{ image }})')
+      span.hidden {{ name }}'s Picture
+  |{{/if }}
+
+  h1.author-title {{ name }}
+
+  |{{#if bio }}
+  h2.author-bio {{ bio }}
+  |{{/if }}
+
+  .author-meta
+    |{{#if location }}
+    span.author-location.icon-location {{ location }}
+    |{{/if }}
+
+    |{{#if website }}
+    span.author-link.icon-link
+      a(href='{{ website }}') {{ website }}
+    |{{/if }}
+
+    span.author-stats
+      i.icon-stats
+      |{{plural ../pagination.total empty='No posts' singular='% post' plural='% posts' }}
+
+|{{/author }}
+
+// The main content area on the homepage
+main.content(role='main')
+  // The tag below includes the post loop - partials/loop.hbs
+  |{{> "loop" }}

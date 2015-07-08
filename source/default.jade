@@ -1,0 +1,47 @@
+doctype html
+
+html
+  head
+
+    // document settings
+    title {{meta_title}}
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+
+    // page meta
+    meta(name='description', content='{{ meta_description }}')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='shortcut icon', href="{{ asset 'favicon.ico' }}")
+
+    // styles and scripts
+    link(rel='stylesheet', type='text/css', href="{{ asset 'css/style.min.css' }}")
+
+    // ghost outputs important style and meta data
+    | {{ ghost_head }}
+
+  body.nav-closed(class='{{ body_class }}')
+
+    // ghost
+    | {{ navigation }}
+
+    .site-wrapper
+      // everything else gets inserted here
+      | {{{ body }}}
+
+      footer.site-footer.clearfix
+        section.copyright
+          a(href='{{ @blog.url }}') {{ @blog.title }}
+          |  &copy; {{ date format='YYYY' }}
+
+        section.poweredby
+          | Proudly published with
+          a(href='https://ghost.org') Ghost
+
+          // Ghost outputs important scripts and data with this tag
+          | {{ ghost_foot }}
+
+    // main java script files
+    script(type='text/javascript', src="{{ asset 'js/app.js' }}")
+
+                                  
