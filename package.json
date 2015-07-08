@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/haqqle/ghost_starter_theme"
   },
   "dependencies": {
     "coffee-script": "~1.7.1",
