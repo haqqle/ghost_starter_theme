@@ -1,7 +1,7 @@
 {
-  "name": "wm_ghost_theme",
+  "name": "ghost_starter_theme",
   "version": "0.0.1",
-  "description": "ghost theme for webagentur-merz.ch",
+  "description": "create ghost theme with jade, coffee, sass, jshint and livereload",
   "author": "Frederic Merz",
   "homepage": "http://webagentur-merz.ch",
   "license": "MIT",
