@@ -91,6 +91,6 @@ gulp.task 'watch', ->
   gulp.watch(['./package.json'], ['package'])
 
 gulp.task 'build', (callback) ->
-  $run("sass", "coffee", "jade", "copy", callback)
+  $run("sass", "coffee", "jade", "copy", "package", callback)
 
 gulp.task 'default', ['build']
